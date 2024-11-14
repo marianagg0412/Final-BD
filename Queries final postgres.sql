@@ -18,6 +18,7 @@ SELECT customerid, SUM(C.price) as total_purchase_value
 FROM transactions
          INNER JOIN public.comics c on c.id = transactions.comicid
 GROUP BY customerid
+HAVING COUNT(transactions.comicid) > 5
 ORDER BY total_purchase_value DESC;
 
 --Advanced queries
